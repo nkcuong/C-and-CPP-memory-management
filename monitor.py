@@ -1,3 +1,9 @@
+# Description: This file is the main file for the web application. It uses flask and socketio to create a web application that monitors the producer consumer queue.
+# Test: Run this file and go to http://127.0.0.1:5000/ to see the web application.
+
+
+
+
 from flask import Flask, render_template, jsonify
 from flask_socketio import SocketIO, emit
 from ProducerConsumerOOP import ProducerConsumerQueue, Producer, Consumer
