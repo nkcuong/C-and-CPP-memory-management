@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Producer-Consumer Monitor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Producer-Consumer Monitor</h1>
-    <button id="start-button">Start</button>
-    <ul id="queue"></ul>
-    <ul id="producers"></ul>
-    <ul id="consumers"></ul>
-    <script>
-        document.getElementById('start-button').addEventListener('click', function() {
-            fetch('/start');
-        });
+    <button id="start">Start</button>
+    <br> 
+    Queue: <div id="queue"></div>
+    Producers: <div id="producers"></div>
+    Consumers: <div id="consumers"></div>
 
-        var source = new EventSource("/update");
-        source.onmessage = function(event) {
-            var data = JSON.parse(event.data);
-            var queue = document.getElementById('queue');
-            var producers = document.getElementById('producers');
-            var consumers = document.getElementById('consumers');
-            queue.innerHTML = '';
-            producers.innerHTML = '';
-            consumers.innerHTML = '';
-            data.queue.forEach(function(item) {
-                var li = document.createElement('li');
-                li.textContent = item;
-                queue.appendChild(li);
-            });
-            data.producers.forEach(function(item) {
-                var li = document.createElement('li');
-                li.textContent = item;
-                producers.appendChild(li);
-            });
-            data.consumers.forEach(function(item) {
-                var li = document.createElement('li');
-                li.textContent = item;
-                consumers.appendChild(li);
-            });
-        };
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        $('#start').click(function() {
+            socket.emit('start');
+        });
+        socket.on('queue', function(data) {
+            $('#queue').text(JSON.stringify(data));
+        });
+        socket.on('producers', function(data) {
+            $('#producers').text(JSON.stringify(data));
+        });
+        socket.on('consumers', function(data) {
+            $('#consumers').text(JSON.stringify(data));
+        });
     </script>
 </body>
 </html>
