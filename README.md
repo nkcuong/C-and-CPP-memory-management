@@ -1,1 +1,1 @@
-The material to teach operating system concept and basic code-debug cicle.
+I use this repo to teach operating system concepts and basic code-debug cicle.
