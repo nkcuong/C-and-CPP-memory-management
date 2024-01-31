@@ -8,9 +8,9 @@
             "args": [
                 "-std=c++14",
                 "-g",
-                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/${fileBasename}",
                 "-o",
-                "${workspaceFolder}/main"
+                "${workspaceFolder}/${fileBasenameNoExtension}"
             ],
             "group": "build",
             "problemMatcher": []
@@ -25,7 +25,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lstdc++"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -49,7 +50,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lstdc++"
             ],
             "options": {
                 "cwd": "${fileDirname}"
