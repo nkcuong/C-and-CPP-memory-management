@@ -1,0 +1,2 @@
+﻿ProducerConsumer.obj : error LNK2005: main already defined in main.obj
+C:\Users\nkcuong\OneDrive\Documents\BP\dev\C and CPP memory management\x64\Debug\CPP VS.exe : fatal error LNK1169: one or more multiply defined symbols found

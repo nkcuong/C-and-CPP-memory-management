@@ -65,25 +65,24 @@ class Consumer(threading.Thread):
 # test the whole thing
 # main: uncomment following lines:
 			
-# def start_producers():
-# 	global producers
-# 	producers = [Producer(str(n), pcq, 100, 2) for n in range(1, 5)] # 4 producers with velocity 1
-# 	for producer in producers:
-# 		producer.start()
+def start_producers():
+	global producers
+	producers = [Producer(str(n), pcq, 100, 2) for n in range(1, 5)] # 4 producers with velocity 1
+	for producer in producers:
+		producer.start()
 
 
-# def start_consumers():
-# 	global consumers
-# 	consumers = [Consumer(str(m), pcq, 100, 1.5) for m in range(1, 3)] # 2 consumers with velocity 2
-# 	for consumer in consumers:
-# 		consumer.start()
+def start_consumers():
+	global consumers
+	consumers = [Consumer(str(m), pcq, 100, 1.5) for m in range(1, 3)] # 2 consumers with velocity 2
+	for consumer in consumers:
+		consumer.start()
 
 
-
-# pcq = ProducerConsumerQueue(100)
-# start_producers()
-# time.sleep(2)  # Let the producers produce for 2 seconds
-# start_consumers()
+pcq = ProducerConsumerQueue(100)
+start_producers()
+time.sleep(2)  # Let the producers produce for 2 seconds
+start_consumers()
 
 
 

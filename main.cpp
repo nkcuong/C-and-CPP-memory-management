@@ -1,14 +1,21 @@
 #include <iostream>
 
-float divide(float a, float b) {
-	return a / b;
-}
-
 int main() {
-	float x, y, z;
-	x = 5;
-	y = 2;
-	z = divide(x, y);
-	std::cout << z << std::endl;
-   
+    // Allocate memory for 5 integers on the heap
+    int* numbers = new int[5];
+
+    // Assign values to the integers
+    for (int i = 0; i < 5; ++i) {
+        numbers[i] = i;
+    }
+
+    // Print the integers
+    for (int i = 0; i < 5; ++i) {
+        std::cout << numbers[i] << std::endl;
+    }
+
+    // Deallocate the memory
+    delete[] numbers;
+
+    return 0;
 }

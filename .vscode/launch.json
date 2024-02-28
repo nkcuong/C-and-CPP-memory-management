@@ -35,17 +35,27 @@
             "preLaunchTask": "C/C++: clang++ build active file"
         },
         {
-            "name": "C/C++: clang build and debug active file",
-            "type": "cppdbg",
+            "name": "C/C++: cl.exe build and debug active file",
+            "type": "cppvsdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang build active file"
+            "console": "integratedTerminal",
+            "preLaunchTask": "C/C++: cl.exe build active file"
+        },
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
         }
     ]
 }

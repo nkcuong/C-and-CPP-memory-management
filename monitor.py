@@ -1,5 +1,5 @@
 # Description: This file is the main file for the web application. It uses flask and socketio to create a web application that monitors the producer consumer queue.
-# Test: Run this file and go to http://127.0.0.1:5000/ to see the web application.
+# Test: Run this file and go to http://127.0.0.1:5001/ to see the web application.
 
 
 
@@ -44,4 +44,5 @@ def monitor():
         time.sleep(0.5)
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
+   # socketio.run(app, debug=True)
