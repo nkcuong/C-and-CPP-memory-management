@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "NarrowRoad",
+            "request": "launch",
+            "mainClass": "NarrowRoad",
+            "projectName": "C and CPP memory management_ef7088aa"
+        },
+        {
             "name": "(lldb) Attach",
             "type": "cppdbg",
             "request": "attach",
